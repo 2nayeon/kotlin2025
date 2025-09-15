@@ -28,10 +28,11 @@ class MainActivity : ComponentActivity() {
             }
         }
         week02Variable()
+        week02Functions()
     }
 }
 
-fun week02Variable(){
+ fun week02Variable(){
     println("Week02 Variables")
 
     val courseName = "Mobile Programming"
@@ -43,6 +44,24 @@ fun week02Variable(){
     // $courseName -> 문자열 템플릿
     // 문자열 템플릿: 문자열 안에 변수를 쉽게 넣기 위해 $변수명 형식을 사용함.
     println("Week: $week")
+
+    // --------------------------------------------------------------
+    println("== Kotlin Variables ==")
+    // val name: String = "Android"
+    val name = "Android"
+    var version = 8.1
+    println("Hello $name $version")
+
+    val age: Int = 22
+    val height: Double = 153.7
+    val isStudent: Boolean = true
+    println("Age: $age, Height: $height, Student: $isStudent")
+}
+
+fun week02Functions(){
+    println("Week02 Functions")
+    fun greet(name: String) = "Hello, $name!"
+    println(greet(name = "Android Developer"))
 }
 
 @Composable
