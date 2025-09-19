@@ -27,12 +27,36 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-        week02Variable()
-        week02Functions()
+        // week02Variable()
+        // week02Functions()
+        week03Classes()
     }
 }
 
- fun week02Variable(){
+private fun week03Classes(){
+    println("== Kotlin Classes ==")
+    class Student{
+        var name: String = ""
+        var age: Int = 0
+        fun introduce(){
+            println("Hi, I'm $name and I'm $age years old.")
+        }
+    }
+    val student = Student()
+    student.name = "leenayeon"
+    student.age = 26
+    student.introduce()
+
+    // -------------------------------------------------------
+    data class Person(val name: String, val age: Int)
+    val person1 = Person(name="Lee", age=24)
+    val person2 = Person(name="Lee", age=24)
+
+    println("Person1: $person1")
+    println("Equal?: ${person1 == person2}")
+}
+
+private fun week02Variable(){
     println("Week02 Variables")
 
     val courseName = "Mobile Programming"
@@ -58,17 +82,16 @@ class MainActivity : ComponentActivity() {
     println("Age: $age, Height: $height, Student: $isStudent")
 }
 
-fun week02Functions(){
+private fun week02Functions(){
 //    println("Week02 Functions")
 //    fun greet(name: String) = "Hello, $name!"
 //    println(greet(name = "Android Developer"))
-
 // ------------------------------------------------------------------
     println("== Kotlin Funtions ==")
     fun greet(name: String): String{
         return "Hello, $name"
     }
-    fun add(a: Int, b: Int) = a+b
+    fun add(a: Int, b: Int) = a+b      // 표현식 함수
     fun introduce(name: String, age: Int = 19){
         println("My name is $name and I'm $age years old")
     }
