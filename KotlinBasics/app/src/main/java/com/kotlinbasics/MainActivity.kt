@@ -71,8 +71,9 @@ private fun week03Classes() {
     person1.introduce()
     person1.birthday()
 
-    // class ...() -> 주생성자
-    class Animal(var species: String) {
+    // open class -> 상속이 가능하다는걸 의미
+    // class -> 기본이 자바의 final(상속 불가)
+    open class Animal(var species: String) {
         var weight: Double = 0.0
 
         // constructor -> 보조생성자
@@ -81,12 +82,21 @@ private fun week03Classes() {
             this.weight = weight
             Log.d("KotlinWeek03", "$species 의 무게: $weight kg")
         }
-        fun makeSound() {
+        open fun makeSound() { // open ... -> 오버라이딩 가능한 메서드
             Log.d("KotlinWeek03", "$species 가 소리를 냅니다.")
         }
     }
     val puppy = Animal("강아지", 6.5)
     puppy.makeSound()
+
+    // :Animal(...) -> 부모클래스를 상속했기 때문에 부모의 생성자. 자바에서 extends + super()
+    class Dog(species: String, weigth: Double, val breed: String): Animal(species, weigth){
+        override fun makeSound() { // 부모클래스 메서드를 오버라이딩(재정의)
+            Log.d("KotlinWeek03", "$breed($species)가 멍멍 짖습니다!")
+        }
+    }
+    val dog = Dog("개", 12.5, "골든리트리버")
+    dog.makeSound()
 
 
 //    class Student{
