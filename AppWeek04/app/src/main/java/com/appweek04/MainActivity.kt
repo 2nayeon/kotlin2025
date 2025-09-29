@@ -1,5 +1,3 @@
-// MainActivity.kt
-
 package com.appweek04
 
 import android.os.Bundle
@@ -22,14 +20,16 @@ class MainActivity : AppCompatActivity() {
         buttonGreet.setOnClickListener{
             val name = editTextName.text.toString().trim()
 
+            var greeting: String = ""
             if(name.isNotEmpty()){
-                textViewGreeting.text = "안녕, ${name}님"
-                textViewGreeting.visibility = View.VISIBLE
+                greeting = "안녕, ${name}님"
 
             } else {
-                textViewGreeting.text = "너의 이름은?"
-                textViewGreeting.visibility = View.VISIBLE
+                greeting = "너의 이름은?"
             }
+            textViewGreeting.text = greeting
+            textViewGreeting.visibility = View.VISIBLE
+            Log.d("KotlinWeek04App", greeting)
         }
     }
 }
